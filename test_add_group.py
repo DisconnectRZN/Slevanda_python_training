@@ -18,15 +18,22 @@ class test_add_group(unittest.TestCase):
     def test_test_add_group(self):
         success = True
         wd = self.wd
-        wd.get("https://www.invitro.ru/")
-        wd.find_element_by_css_selector("span.drugtown.active").click()
-        wd.find_element_by_css_selector("span.drugtown.active").click()
-        wd.find_element_by_link_text("Москва").click()
-        wd.find_element_by_css_selector("body").click()
-        wd.find_element_by_link_text("Анализы и цены").click()
-        wd.find_element_by_css_selector("img.addimagink").click()
-        wd.find_element_by_css_selector("img.addimagink").click()
-        wd.find_element_by_css_selector("input.ofz").click()
+        wd.get("https://www.google.ru/")
+        wd.find_element_by_id("sb_ifc0").click()
+        wd.find_element_by_id("lst-ib").click()
+        wd.find_element_by_id("lst-ib").clear()
+        wd.find_element_by_id("lst-ib").send_keys("rfhnbyrb")
+        wd.find_element_by_id("lst-ib").click()
+        wd.find_element_by_id("lst-ib").clear()
+        wd.find_element_by_id("lst-ib").send_keys("картинки")
+        wd.find_element_by_css_selector("input.lsb").click()
+        wd.find_element_by_link_text("Картинки по запросу картинки").click()
+        wd.find_element_by_name("cSxKcymuOCYr1M:").click()
+        wd.find_element_by_xpath("//a[@id='irc_ra']/div").click()
+        ActionChains(wd).double_click(wd.find_element_by_id("irc_ra")).perform()
+        ActionChains(wd).double_click(wd.find_element_by_id("irc_ra")).perform()
+        wd.find_element_by_id("irc_cb").click()
+        wd.find_element_by_xpath("//a[@id='logo']/img").click()
         self.assertTrue(success)
     
     def tearDown(self):
