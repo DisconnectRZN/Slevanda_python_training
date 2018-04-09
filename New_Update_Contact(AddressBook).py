@@ -7,7 +7,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
-class UntitledTestCase(unittest.TestCase):
+class NewUpdateContactAddressBook(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
@@ -15,7 +15,7 @@ class UntitledTestCase(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
     
-    def test_untitled_test_case(self):
+    def test_new_update_contact_address_book(self):
         driver = self.driver
         driver.get("http://localhost/addressbook/")
         driver.find_element_by_name("user").click()
@@ -34,9 +34,6 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_name("lastname").send_keys("Last name")
         driver.find_element_by_name("nickname").clear()
         driver.find_element_by_name("nickname").send_keys("Nickname")
-        driver.find_element_by_name("photo").click()
-        driver.find_element_by_name("photo").clear()
-        driver.find_element_by_name("photo").send_keys(u"C:\\fakepath\\Аватарка.jpg")
         driver.find_element_by_name("title").clear()
         driver.find_element_by_name("title").send_keys("Title")
         driver.find_element_by_name("company").clear()
