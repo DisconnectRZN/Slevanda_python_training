@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
+from group import Group
 
 class NewGroupAddressBook(unittest.TestCase):
     def setUp(self):
@@ -18,9 +19,18 @@ class NewGroupAddressBook(unittest.TestCase):
     def test_new_group_address_book(self):
         driver = self.driver
         self.open_home_page(driver)
-        self.login(driver)
+        self.login(driver, username="admin", password="secret")
         self.open_group_page(driver)
-        self.create_group(driver)
+        self.create_group(driver, Group(name="Group Name", header="Group header", footer="Group footer"))
+        self.return_to_groups_page(driver)
+        self.logout(driver)
+
+    def test_empty_group_address_book(self):
+        driver = self.driver
+        self.open_home_page(driver)
+        self.login(driver, username="admin", password="secret")
+        self.open_group_page(driver)
+        self.create_group(driver, Group(name="", header="", footer=""))
         self.return_to_groups_page(driver)
         self.logout(driver)
 
@@ -33,7 +43,7 @@ class NewGroupAddressBook(unittest.TestCase):
         driver.find_element_by_link_text("group page").click()
         time.sleep(1)
 
-    def create_group(self, driver):
+    def create_group(self, driver, group):
         # init group creation
         driver.find_element_by_name("new").click()
         # fill gtoup form
@@ -42,15 +52,15 @@ class NewGroupAddressBook(unittest.TestCase):
         time.sleep(1)
         driver.find_element_by_name("group_name").clear()
         time.sleep(1)
-        driver.find_element_by_name("group_name").send_keys("Group Name")
+        driver.find_element_by_name("group_name").send_keys(group.name)
         time.sleep(1)
         driver.find_element_by_name("group_header").clear()
         time.sleep(1)
-        driver.find_element_by_name("group_header").send_keys("Group header")
+        driver.find_element_by_name("group_header").send_keys(group.header)
         time.sleep(1)
         driver.find_element_by_name("group_footer").clear()
         time.sleep(1)
-        driver.find_element_by_name("group_footer").send_keys("Group footer")
+        driver.find_element_by_name("group_footer").send_keys(group.footer)
         time.sleep(1)
         # submit group creation
         driver.find_element_by_name("submit").click()
@@ -61,13 +71,13 @@ class NewGroupAddressBook(unittest.TestCase):
         driver.find_element_by_link_text("groups").click()
         time.sleep(1)
 
-    def login(self, driver):
+    def login(self, driver, username, password):
         # login
         driver.find_element_by_name("user").click()
         driver.find_element_by_name("user").clear()
-        driver.find_element_by_name("user").send_keys("admin")
+        driver.find_element_by_name("user").send_keys(username)
         driver.find_element_by_name("pass").clear()
-        driver.find_element_by_name("pass").send_keys("secret")
+        driver.find_element_by_name("pass").send_keys(password)
         time.sleep(1)
         driver.find_element_by_xpath("//input[@value='Login']").click()
         time.sleep(1)
