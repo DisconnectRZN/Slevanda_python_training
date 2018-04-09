@@ -17,47 +17,26 @@ class NewGroupAddressBook(unittest.TestCase):
     
     def test_new_group_address_book(self):
         driver = self.driver
-        # open home page
         driver.get("http://localhost/addressbook/group.php")
-        # login
         driver.find_element_by_name("user").click()
         driver.find_element_by_name("user").clear()
         driver.find_element_by_name("user").send_keys("admin")
         driver.find_element_by_name("pass").clear()
         driver.find_element_by_name("pass").send_keys("secret")
-        time.sleep(1)
         driver.find_element_by_xpath("//input[@value='Login']").click()
-        time.sleep(1)
-        # open group page
         driver.find_element_by_link_text("groups").click()
-        time.sleep(1)
-        # init group creation
         driver.find_element_by_name("new").click()
-        # fill gtoup form
-        time.sleep(1)
         driver.find_element_by_name("group_name").click()
-        time.sleep(1)
         driver.find_element_by_name("group_name").clear()
-        time.sleep(1)
         driver.find_element_by_name("group_name").send_keys("Group Name")
-        time.sleep(1)
         driver.find_element_by_name("group_header").clear()
-        time.sleep(1)
         driver.find_element_by_name("group_header").send_keys("Group header")
-        time.sleep(1)
         driver.find_element_by_name("group_footer").clear()
-        time.sleep(1)
         driver.find_element_by_name("group_footer").send_keys("Group footer")
-        time.sleep(1)
-        # submit group creation
         driver.find_element_by_name("submit").click()
-        time.sleep(1)
-        # return to groups page
         driver.find_element_by_link_text("group page").click()
-        time.sleep(1)
-        # logout
         driver.find_element_by_link_text("Logout").click()
-    
+
     def is_element_present(self, how, what):
         try: self.driver.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
