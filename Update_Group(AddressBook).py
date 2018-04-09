@@ -39,35 +39,24 @@ class NewGroupAddressBook(unittest.TestCase):
     def return_to_groups_page(self, driver):
         # return to groups page
         driver.find_element_by_link_text("group page").click()
-        time.sleep(1)
 
     def create_group(self, driver, group):
         # init group creation
         driver.find_element_by_name("new").click()
         # fill gtoup form
-        time.sleep(1)
         driver.find_element_by_name("group_name").click()
-        time.sleep(1)
         driver.find_element_by_name("group_name").clear()
-        time.sleep(1)
         driver.find_element_by_name("group_name").send_keys(group.name)
-        time.sleep(1)
         driver.find_element_by_name("group_header").clear()
-        time.sleep(1)
         driver.find_element_by_name("group_header").send_keys(group.header)
-        time.sleep(1)
         driver.find_element_by_name("group_footer").clear()
-        time.sleep(1)
         driver.find_element_by_name("group_footer").send_keys(group.footer)
-        time.sleep(1)
         # submit group creation
         driver.find_element_by_name("submit").click()
-        time.sleep(1)
 
     def open_group_page(self, driver):
         # open group page
         driver.find_element_by_link_text("groups").click()
-        time.sleep(1)
 
     def login(self, driver, username, password):
         # login
@@ -76,9 +65,7 @@ class NewGroupAddressBook(unittest.TestCase):
         driver.find_element_by_name("user").send_keys(username)
         driver.find_element_by_name("pass").clear()
         driver.find_element_by_name("pass").send_keys(password)
-        time.sleep(1)
         driver.find_element_by_xpath("//input[@value='Login']").click()
-        time.sleep(1)
 
     def open_home_page(self, driver):
         # open home page
