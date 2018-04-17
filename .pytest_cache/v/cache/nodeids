@@ -1,3 +1,4 @@
 [
-  "New_Update_Contact(AddressBook).py::test_create_new_contact"
+  "test/Update_Group(AddressBook).py::test_new_group_address_book",
+  "test/Update_Group(AddressBook).py::test_empty_group_address_book"
 ]

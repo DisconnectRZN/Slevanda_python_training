@@ -1,4 +1,6 @@
 {
   "New_Update_Contact(AddressBook).py::UntitledTestCase::test_untitled_test_case": true,
-  "New_Update_Contact(AddressBook).py::test_new_create_contact_address_book": true
+  "New_Update_Contact(AddressBook).py::test_new_create_contact_address_book": true,
+  "test/Update_Group(AddressBook).py::test_empty_group_address_book": true,
+  "test/Update_Group(AddressBook).py::test_new_group_address_book": true
 }
