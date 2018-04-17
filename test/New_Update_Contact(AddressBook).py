@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from Model.contact import Contact
+from Slevanda_python_training.Model.contact import Contact
 import time
 
 def test_create_new_contact(app):
