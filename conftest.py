@@ -2,7 +2,7 @@ import pytest
 from Slevanda_python_training.Fixture.application import Application
 
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture
 def app(request):
     fixture = Application()
     fixture.session.login(username="admin", password="secret")
