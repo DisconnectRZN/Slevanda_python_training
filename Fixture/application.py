@@ -3,7 +3,6 @@ from Slevanda_python_training.Fixture.session import SessionHelper
 from Slevanda_python_training.Fixture.group import GroupHelper
 from Slevanda_python_training.Fixture.contact import ContactHelper
 
-
 class Application:
 
     def __init__(self):

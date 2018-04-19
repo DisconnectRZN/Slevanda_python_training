@@ -1,3 +1,4 @@
 [
-  "test_del_group.py::test_del_group"
+  "test_modify_group.py::test_modify_group_name",
+  "test_modify_group.py::test_modify_group_header"
 ]
