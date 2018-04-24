@@ -1,6 +1,7 @@
 import time
 from selenium.webdriver.support.ui import Select
 
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -40,13 +41,19 @@ class ContactHelper:
         # submit new contact creation
         driver.find_element_by_xpath("(//input[@name='submit'])[2]").click()
 
+
+
     def delete_first_contact(self, app):
         driver = self.app.driver
         # select first group
+        app.open_home_page()
         driver.find_element_by_name("selected[]").click()
-        time.sleep(2)
         # submit deletion
         driver.find_element_by_xpath('//*[@id="content"]/form[2]/div[2]/input').click()
-        time.sleep(2)
         alert = app.driver.switch_to_alert()
         alert.accept()
+
+    def count_contact(self, app):
+        driver = self.app.driver
+        app.open_home_page()
+        return len(driver.find_elements_by_name("selected[]"))

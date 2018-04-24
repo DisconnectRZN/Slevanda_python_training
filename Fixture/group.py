@@ -63,4 +63,11 @@ class GroupHelper:
     def open_group_page(self):
         # open group page
         driver = self.app.driver
+        if not driver.current_url.endswith("/group.php") and len(driver.find_elements_by_name("new")) > 0:
+            return
         driver.find_element_by_link_text("groups").click()
+
+    def count(self):
+        driver = self.app.driver
+        self.open_group_page()
+        return len(driver.find_elements_by_name("selected[]"))
