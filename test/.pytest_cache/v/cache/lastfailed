@@ -1,4 +1,5 @@
 {
+  "New_Group(AddressBook).py::NewGroupAddressBook::test_new_group_address_book": true,
   "New_Update_Contact(AddressBook).py::test_create_new_contact": true,
   "test_del_group.py::test_delete_first_group_address_book": true
 }
