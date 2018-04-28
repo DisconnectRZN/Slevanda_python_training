@@ -10,7 +10,7 @@ class SessionHelper:
         self.app.open_home_page()
         driver.find_element_by_name("user").send_keys(username)
         driver.find_element_by_name("pass").send_keys(password)
-        driver.find_element_by_xpath('*[@id="LoginForm"]input[3]').click()
+        driver.find_element_by_xpath('//*[@id="LoginForm"]/input[3]').click()
 
 
 
