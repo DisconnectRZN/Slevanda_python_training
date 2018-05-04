@@ -42,10 +42,7 @@ class GroupHelper:
         driver = self.app.driver
         self.open_group_page()
         self.select_group_by_index(index)
-        time.sleep(2)
-        # submit deletion
         driver.find_element_by_name("delete").click()
-        time.sleep(2)
         self.return_to_groups_page()
         self.group_cache = None
 

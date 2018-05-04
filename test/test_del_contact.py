@@ -11,4 +11,3 @@ def test_del_contact(app):
                     aday="18", amonth="July", ayear="1998", address_2="Address",
                     secondaryphone="Home address", notes="Notes"))
     app.contact.delete_first_contact(app)
-    app.session.logout()
